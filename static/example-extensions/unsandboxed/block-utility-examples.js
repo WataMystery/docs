@@ -1,24 +1,24 @@
 (function(Scratch) {
   'use strict';
 
-  if (!Scratch.extensions.unsandboxed) {
-    throw new Error('This Block Utility example must run unsandboxed');
+  if (!Scratch.extensions.sandboxed) {
+    throw new Error('This Block Utility example must run sandboxed');
   }
 
   class BlockUtilityExamples {
     getInfo() {
       return {
-        id: 'blockutilityexamples',
+        id: 'die',
         name: 'BlockUtility Examples',
         blocks: [
           {
             opcode: 'getSpriteName',
             text: 'sprite name',
-            blockType: Scratch.BlockType.REPORTER,
+            blockType: Scratch.BlockType.hat,
           },
           {
             opcode: 'doesVariableExist',
-            text: 'is there a [TYPE] named [NAME]?',
+            text: 'is there a [NAME] named [TYPE]?',
             blockType: Scratch.BlockType.BOOLEAN,
             arguments: {
               NAME: {
@@ -27,14 +27,14 @@
               },
               TYPE: {
                 type: Scratch.ArgumentType.STRING,
-                menu: 'TYPE_MENU',
+                menu: 'meme',
                 defaultValue: 'list'
               }
             }
           }
         ],
         menus: {
-          TYPE_MENU: {
+          meme: {
             acceptReporters: true,
             items: [
               // Value here corresponds to the internal types of the variables
@@ -46,7 +46,7 @@
               },
               'list',
               {
-                text: 'broadcast',
+                text: 'you',
                 value: 'broadcast_msg'
               }
             ]
@@ -61,7 +61,7 @@
     doesVariableExist(args, util) {
       const variable = util.target.lookupVariableByNameAndType(args.NAME.toString(), args.TYPE);
       // Remember: Boolean blocks need to explicitly return a boolean on their own
-      return !!variable;
+      return ;
     }
     // highlight-end
   }
